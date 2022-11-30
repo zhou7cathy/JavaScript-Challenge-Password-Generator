@@ -12,25 +12,25 @@ function generatePassword(){
     var result = "";
     var passwordLength = prompt ("How many characters would you link your password to contain ?");
 
-//If the input of passwordLength is less than 8 or greater than 128 the function will stop after alert and return message "The password length must be between 8 and 128 characters! Please try again." as password
+    //If the input of passwordLength is less than 8 or greater than 128 the function will stop after alert and return message "The password length must be between 8 and 128 characters! Please try again." as password
     if (passwordLength < 8 || passwordLength >128){
         alert("The password length must be between 8 and 128 characters! Please try again.");
         return"The password length must be between 8 and 128 characters! Please try again.";
     }
-//If the input of passwordLength is within the range it will store the input number in the var passwordLength and continue
+    //If the input of passwordLength is within the range it will store the input number in the var passwordLength and continue
     var lowercaseCharacter = confirm ("Click Okay to confirm including lowercase characters.");
     var uppercaseCharacter = confirm ("Click Okay to confirm including uppercase characters.");
     var numericCharacter = confirm ("Click Okay to confirm including numeric characters.");
     var specialCharacter = confirm ("Click Okay to confirm including special characters.");
     
-//Use for loop for all possible of selection, and randomly get one character at a time until we got enough number of characters
+    //Use for loop for all possible of selection, and randomly get one character at a time until we got enough number of characters
     if (lowercaseCharacter === true && uppercaseCharacter === false && numericCharacter === false && specialCharacter === false){
         for (var i = 0; i < passwordLength; i++ ){
             result = result + lowercase[Math.floor(Math.random() * lowercase.length)]
         }
     } 
     else if (lowercaseCharacter === true && uppercaseCharacter === true && numericCharacter === false && specialCharacter === false){
-//Using concat method joins lowercase and uppercase array and returns a new array called option
+    //Using concat method joins lowercase and uppercase array and returns a new array called option
         var option = lowercase.concat(uppercase);
         for (var i = 0; i < passwordLength; i++ ){
             result = result + option[Math.floor(Math.random() * option.length)]
